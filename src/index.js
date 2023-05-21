@@ -1,11 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, BrowserRouter } from 'react-router-dom';
+import './input.css';
 
 import MainPage from './pages/MainPage';
-import ProductListPage from './pages/ProductListPage'
+import ProductListPage from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartDetailPage from './pages/CartDetailPage';
+
+import Header from './components/Header';
 
 const container = document.getElementById('root')
 const root = createRoot(container)
@@ -31,6 +34,7 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
   </React.StrictMode>,
 );
