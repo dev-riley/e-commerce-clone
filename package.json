@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/dev-riley/e-commerce-clone/issues"
   },
-  "homepage": "https://github.com/dev-riley/e-commerce-clone#readme"
+  "homepage": "https://github.com/dev-riley/e-commerce-clone#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6"
+  }
 }
