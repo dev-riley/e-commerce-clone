@@ -7,6 +7,7 @@ import MainPage from './pages/MainPage';
 import ProductListPage from './pages/ProductListPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartDetailPage from './pages/CartDetailPage';
+import CreatePage from './pages/CreatePage';
 
 import Header from './components/Header';
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/cart',
     element: <CartDetailPage />
+  },
+  {
+    path: '/create',
+    element: <CreatePage />
   }
 ])
 
