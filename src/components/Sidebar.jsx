@@ -18,15 +18,17 @@ const Sidebar = () => {
   ]
   return(
     <Fragment>
-      <div className="mb-12">
-        <p className="text-[28px] font-bold">여성의류</p>
-      </div>
-      <div>
-        {categories.map((category, index) => {
-          return (
-            <p className="text-[16px] my-5 hover:cursor-pointer hover:underline text-gray-600">{category.name}</p>
-          )
-        })}
+      <div className="flex flex-col mr-[170px]">
+        <div className="mb-12">
+          <p className="text-[28px] font-bold">여성의류</p>
+        </div>
+        <div>
+          {categories.map((category, index) => {
+            return (
+              <p className="text-[16px] my-5 hover:cursor-pointer hover:underline text-gray-600" key={index}>{category.name}</p>
+            )
+          })}
+        </div>
       </div>
     </Fragment>
 
