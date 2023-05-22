@@ -1,9 +1,10 @@
 import { Fragment } from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../../public/images/siv_logo.png';
+import HeaderCategory from './HeaderCategory'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faClock } from "@fortawesome/free-regular-svg-icons";
+import { faUser, faClock, faSquarePlus } from "@fortawesome/free-regular-svg-icons";
 import { faArrowRightToBracket, faHeadset, faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
@@ -27,11 +28,13 @@ const Header = () => {
           </div>
           {/* 헤더 아이콘들 */}
           <div className="flex space-x-3">
-            <div className="justfiy-center">
-              <FontAwesomeIcon icon={faArrowRightToBracket} className="h-6 w-6 m-2"/>
-              <p className="text-xs">로그인</p>
+            <div>
+              <a href="/create">
+                <FontAwesomeIcon icon={faSquarePlus} className="h-6 w-6 m-2 ml-3"/>
+                <p className="text-xs">상품 등록</p>
+              </a>
             </div>
-            <div className="justify-center">
+            <div>
               <FontAwesomeIcon icon={faHeadset} className="h-6 w-6 m-2"/>
               <p className="text-xs">고객센터</p>
             </div>
@@ -53,26 +56,9 @@ const Header = () => {
         </div>
       </nav>
       {/* category */}
-      <hr />
-      <div className="flex justify-between mx-[70px] my-[20px]">
-        <div className="flex space-x-10">
-          <p>Brand</p>
-          <p>뷰티</p>
-          <p>여성의류</p>
-          <p>남성의류</p>
-          <p>백</p>
-          <p>슈즈</p>
-          <p>액세서리</p>
-          <p>스포츠/레저</p>
-          <p>골프</p>
-          <p>키즈</p>
-          <p>라이프</p>
-        </div>
-        <div className="flex space-x-10">
-          <p>원더위크</p>
-          <p>이벤트</p>
-          <p>아울렛</p>
-        </div>
+      <div className="sticky top-0 bg-white pb-2">
+        <hr />
+        <HeaderCategory />
       </div>
     </Fragment>
   )
