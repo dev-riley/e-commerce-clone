@@ -10,6 +10,7 @@ import CartDetailPage from './pages/CartDetailPage';
 import CreatePage from './pages/CreatePage';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const container = document.getElementById('root')
 const root = createRoot(container)
@@ -41,5 +42,6 @@ root.render(
   <React.StrictMode>
     <Header />
     <RouterProvider router={router} />
+    <Footer />
   </React.StrictMode>,
 );
