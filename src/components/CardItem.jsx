@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom"
 
 const CardItem = ({product}) => {
   const navigate = useNavigate();
-  const { productId, img, brandName, productName, price, color, size, deliveryFee} = product
+  const { id, productId, img, brandName, productName, price, color, size, deliveryFee} = product
   
   const toDetailPage = () => {
-    navigate(`/products/${productId}`)
+    navigate(`/products/${id}`)
   }
   
   return(
