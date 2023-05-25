@@ -38,10 +38,19 @@ const ProductDetailPage = () => {
   const onIncrease = () => {
     setNumber(number + 1)
   }
-
+  
   const onDecrease = () => {
-    setNumber(number -1)
+    if (number > 1) {
+      setNumber(number -1)
+    }
   }
+  // 수량 입력 필드의 변경 이벤트를 처리하고, 입력된 값을 검사하여 유효한 경우에만 setQuantity를 호출
+  const handleNumber = (e) => {
+    const newNumber = parseInt(e.target.value, 10);
+    if (!isNaN(newNumber)) {
+      setNumber(newNumber)
+    }
+  } 
 
   const productData = {
     brandName : detailInfo.brandName,
@@ -139,7 +148,7 @@ const ProductDetailPage = () => {
               <th className="text-lg text-left py-8">수량</th>
               <td className="py-8">
                 <button className="border-2 w-12 h-12 text-4xl align-bottom pb-1" onClick={onDecrease}>-</button>
-                <input type="text" value={number} className="border-2 h-12 w-[450px] text-xl text-center"/>
+                <input type="text" min="1" value={number} className="border-2 h-12 w-[450px] text-xl text-center" onChange={handleNumber}/>
                 <button className="border-2 w-12 h-12 text-4xl align-bottom pb-1" onClick={onIncrease}>+</button>
               </td>
             </tr>
