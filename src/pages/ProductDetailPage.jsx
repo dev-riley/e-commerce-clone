@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import { getProductDetail } from "../components/api/axios";
-import { useParams} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import image from '../images/1-1.jpg'
+
+import { getProductDetail, addToCart } from "../components/api/axios";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [ detailInfo, setDetailInfo ] = useState({})
   const [ color, setColor ] = useState({})
-  const [ size, setSize ] = useState({})
   const [ selectedColor, setSelectedColor ] = useState(null);
+  const [ size, setSize ] = useState([])
+  const [ selectedSize, setSelectedSize ] = useState(null)
   const [ number, setNumber ] = useState(1);
   
   // 제품 상세 정보 받아오기
@@ -21,8 +25,13 @@ const ProductDetailPage = () => {
       })
   }, [])
   
+  // 색상 선택
   const handleColorClick = (key, value) => {
     setSelectedColor({key, value})
+  }
+  // 사이즈 선택
+  const handleSizeClick = (value) => {
+    setSelectedSize(value)
   }
 
   // 수량
@@ -32,6 +41,24 @@ const ProductDetailPage = () => {
 
   const onDecrease = () => {
     setNumber(number -1)
+  }
+
+  const productData = {
+    brandName : detailInfo.brandName,
+    productName: detailInfo.productName,
+    productId: detailInfo.productId,
+    img : image,
+    price: detailInfo.price,
+    color: selectedColor,
+    size: selectedSize,
+    deliveryFee: detailInfo.deliveryFee,
+    pieces : number
+  }
+
+  // 장바구니
+  const handleAddToCart = () => {
+    addToCart(productData);
+    navigate('/cart', { productData});
   }
   
 
@@ -98,7 +125,13 @@ const ProductDetailPage = () => {
               <th className="text-lg text-left py-8">옵션</th>
               <td className="flex space-x-2 py-8">
                 {Object.keys(size).map((key) => (
-                  <div key={key} className="w-12 h-12 border-2 flex justify-center items-center">{size[key]}</div>
+                  <button 
+                    key={key} 
+                    className={`w-12 h-12 border-2 flex justify-center items-center ${selectedSize === size[key] ? 'border-black border-2': null}`}
+                    onClick={() => handleSizeClick(size[key])}
+                  >
+                    {size[key]}
+                  </button>
                 ))}
               </td>
             </tr>
@@ -121,9 +154,7 @@ const ProductDetailPage = () => {
           </div>
           <div className="space-x-1">
             <button className="border-2 text-lg font-bold w-[120px] h-[60px]">선물하기</button>
-            <a href="/cart">
-              <button className="text-lg font-bold text-white bg-gray-500 h-[60px] w-[295px]">쇼핑백</button>
-            </a>
+            <button className="text-lg font-bold text-white bg-gray-500 h-[60px] w-[295px]" onClick={handleAddToCart}>쇼핑백</button>
             <button className="text-lg font-bold text-white bg-black h-[60px] w-[295px]">바로 구매</button>
           </div>
         </div>
