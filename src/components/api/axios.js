@@ -1,5 +1,16 @@
 import axios from 'axios';
 
+// 상품 등록
+const createProduct = async(data) => {
+  console.log('상품 등록 성공')
+    
+  return await axios({
+    method: 'POST',
+    url: 'http://localhost:8000/products',
+    data: data
+  })
+}
+
 // 상품 전체 목록 조회
 const getProductList = async () => {
   console.log("성공")
@@ -18,9 +29,6 @@ const getProductDetail = async(id) => {
   })
 }
 
-// 상품 등록
-
-
 // 장바구니에 제품 추가
 const addToCart = async (data) => {
   return await axios({
@@ -38,4 +46,4 @@ const getCart = async () => {
   })
 }
 
-export { getProductList, getProductDetail, addToCart, getCart}
+export { createProduct, getProductList, getProductDetail, addToCart, getCart}
