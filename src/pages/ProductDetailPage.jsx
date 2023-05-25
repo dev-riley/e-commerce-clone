@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import image from '../images/1-1.jpg'
 
 import { getProductDetail, addToCart } from "../components/api/axios";
 
@@ -25,6 +24,7 @@ const ProductDetailPage = () => {
       })
   }, [])
   
+  console.log(detailInfo.img)
   // 색상 선택
   const handleColorClick = (key, value) => {
     setSelectedColor({key, value})
@@ -56,27 +56,28 @@ const ProductDetailPage = () => {
     brandName : detailInfo.brandName,
     productName: detailInfo.productName,
     productId: detailInfo.productId,
-    img : image,
     price: detailInfo.price,
     color: selectedColor,
     size: selectedSize,
     deliveryFee: detailInfo.deliveryFee,
     pieces : number
   }
-
+  
   // 장바구니
   const handleAddToCart = () => {
     addToCart(productData);
     navigate('/cart', { productData});
   }
   
-
+  
   return(
     <div>
       <div className="flex my-[30px] mx-[50px]">
         {/* /이미지 영역 carousel*/}
         <div>
-          <img src={image} alt={detailInfo.productName} className="h-full w-full" />
+          {/* {Object.keys(images).map((imageUrl, index) => (
+            <img key={index} src={imageUrl} alt={detailInfo.productName} className="h-full w-full" />
+          ))} */}
         </div>
         {/* 상세 설명 부분 */}
         <div className="ml-[120px]">
