@@ -6,13 +6,16 @@
       "img": "../images/1-1.jpg",
       "brandName": "10MONTH",
       "productName": "변형소매 골드버튼 자켓-3부",
-      "price": "143,280",
+      "price": 143280,
       "color": {
-        "ivory": "#F9F5EA",
-        "black": "#000000"
+        "아이보리": "#F9F5EA",
+        "블랙": "#000000"
       },
-      "size": ["S", "M"],
-      "deliveryFee": "무료"
+      "size": {
+        "0": "S",
+        "1": "M"
+      },
+      "deliveryFee": 0
     },
     {
       "id": 2,
@@ -20,13 +23,16 @@
       "img": "../images/1-1.jpg",
       "brandName": "10MONTH",
       "productName": "V넥 변형 소매 셔츠-3부",
-      "price": "85,680",
+      "price": 85680,
       "color": {
         "white": "#FFFFFF",
         "pink": "#FFC0CB"
       },
-      "size": ["S", "M"],
-      "deliveryFee": "무료"
+      "size": [
+        "S",
+        "M"
+      ],
+      "deliveryFee": 0
     },
     {
       "id": 3,
@@ -34,13 +40,16 @@
       "img": "../images/1-1.jpg",
       "brandName": "10MONTH",
       "productName": "Summer Kint_비대칭넥 가디건_3부",
-      "price": "75,730",
+      "price": 75730,
       "color": {
         "black": "#000000",
         "lightBeige": "#F5DEB3"
       },
-      "size": ["S", "M"],
-      "deliveryFee": "무료"
+      "size": [
+        "S",
+        "M"
+      ],
+      "deliveryFee": 0
     },
     {
       "id": 4,
@@ -48,13 +57,70 @@
       "img": "../images/1-1.jpg",
       "brandName": "10MONTH",
       "productName": "10;Kijun_카라 집업 가이던",
-      "price": "121,630",
+      "price": 121630,
       "color": {
         "ivory": "#00FF00",
         "black": "#000000"
       },
-      "size": ["S", "M"],
-      "deliveryFee": "무료"
+      "size": [
+        "S",
+        "M"
+      ],
+      "deliveryFee": 0
+    }
+  ],
+  "carts": [
+    {
+      "productId": "TMT3110503",
+      "img": "../images/1-1.jpg",
+      "brandName": "10MONTH",
+      "productName": "변형소매 골드버튼 자켓-3부",
+      "price": 143280,
+      "color": {
+        "아이보리": "#F9F5EA"
+      },
+      "size": "S",
+      "deliveryFee": 0
+    },
+    {
+      "id": 2,
+      "productId": "TMT3111501",
+      "img": "",
+      "brandName": "10MONTH",
+      "productName": "V넥 변형 소매 셔츠-3부",
+      "price": 85680,
+      "color": {
+        "white": "#FFFFFF"
+      },
+      "size": "M",
+      "deliveryFee": 0
+    },
+    {
+      "brandName": "10MONTH",
+      "productName": "변형소매 골드버튼 자켓-3부",
+      "productId": "TMT3110503",
+      "img": "http://localhost:3001/7b06969fae3096216f65dc2bdd7e5ec8.jpg",
+      "price": 143280,
+      "color": null,
+      "size": null,
+      "deliveryFee": 0,
+      "pieces": 1,
+      "id": 3
+    },
+    {
+      "brandName": "10MONTH",
+      "productName": "변형소매 골드버튼 자켓-3부",
+      "productId": "TMT3110503",
+      "img": "http://localhost:3001/7b06969fae3096216f65dc2bdd7e5ec8.jpg",
+      "price": 143280,
+      "color": {
+        "key": "아이보리",
+        "value": "#F9F5EA"
+      },
+      "size": "S",
+      "deliveryFee": 0,
+      "pieces": 1,
+      "id": 4
     }
   ]
 }
