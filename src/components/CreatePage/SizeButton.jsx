@@ -1,7 +1,7 @@
 import react from 'react';
 import { useState, useEffect } from "react";
 
-const SizeButton = () => {
+const SizeButton = ({onSelectedSize}) => {
   const [select, setSelect] = useState([])
 
   const sizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL']
@@ -17,6 +17,7 @@ const SizeButton = () => {
     } else {
       setSelect([...select, size])
     }
+    onSelectedSize(select)
   }
   return(
     <div className="ml-[70px] space-x-3">
