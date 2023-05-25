@@ -127,7 +127,7 @@ const handleClose = () => {
         </div>
         <div className="flex items-center mb-8">
           <p>가격</p>
-          <input type="text" placeholder="숫자만 입력해주세요." className="border-2 w-[500px] h-9 rounded-md ml-[70px]" onChange={(e) => setPrice(e.target.value)}/>
+          <input type="number" placeholder="숫자만 입력해주세요." className="border-2 w-[500px] h-9 rounded-md ml-[70px]" onChange={(e) => setPrice(e.target.value)}/>
         </div>
         <div className="flex items-center mb-8">
           <p>색상 등록</p>
@@ -170,7 +170,7 @@ const handleClose = () => {
         </div>
         <div className="flex items-center mb-8">
           <p>배송비</p>
-          <input type="text" placeholder="숫자만 입력해주세요." className="border-2 w-[500px] h-9 rounded-md ml-[57px]"  onChange={(e) => setDeliveryFee(e.target.value)}/>
+          <input type="number" placeholder="숫자만 입력해주세요." className="border-2 w-[500px] h-9 rounded-md ml-[57px]"  onChange={(e) => setDeliveryFee(e.target.value)}/>
         </div>
         {/* 이미지 등 */}
         <div>
