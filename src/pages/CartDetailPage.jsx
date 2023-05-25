@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getCart } from '../components/api/axios';
-import image from "../images/1-1.jpg";
+
 const CartDetailPage = () => {
   const location = useLocation();
   const [cartData, setCartData ] = useState([])
@@ -41,7 +41,7 @@ const CartDetailPage = () => {
                   <tr>
                     <a href={`/products/${cartData[data].id}`}>
                       <img 
-                        src={image} 
+                        src={cartData[data].img} 
                         alt={data.productName} 
                         className="w-[90px]"
                       />
