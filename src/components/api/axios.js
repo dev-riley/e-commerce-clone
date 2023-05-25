@@ -38,13 +38,4 @@ const getCart = async () => {
   })
 }
 
-// 장바구니 상품 지우기
-const deleteProductInCart = async () => {
-  return await axios({
-    method: "DELETE",
-    url: 'http://localhost:8000/carts'
-  })
-}
-
-
-export { getProductList, getProductDetail, addToCart, getCart, deleteProductInCart }
+export { getProductList, getProductDetail, addToCart, getCart}

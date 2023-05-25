@@ -5,9 +5,6 @@ import image from "../images/1-1.jpg";
 const CartDetailPage = () => {
   const location = useLocation();
   const [cartData, setCartData ] = useState([])
-  const [ color, setColor ] = useState()
-  const [ price, setPrice ] = useState('');
-  const [ number, setNumber ] =useState('');
 
   useEffect(() => {
     getCart()
@@ -15,14 +12,11 @@ const CartDetailPage = () => {
         setCartData(res.data)
       })
   }, [])
-  const colorName = cartData.color
-  // console.log(cartData)
-  // console.log(colorName)
 
-  const handleIncrease = () => {
-    setNumber(cartData[data].pieces + 1)
-    setPrice(cartData[data].price * number)
+  const deleteProductInCart = (id) => {
+    setCartData((prevItems) => prevItems.filter((item) => item.id !== id)) 
   }
+
   // 상품 가격 합
   const totalPrice = cartData.reduce((acc, item) => acc + item.price, 0);
   // 배송비 합
@@ -30,7 +24,7 @@ const CartDetailPage = () => {
   // 최종 가격
   const finalPrice = (totalPrice - totalDeliveryFee).toLocaleString('ko-KR');
 
-  console.log(typeof(totalPrice))
+  // console.log(typeof(totalPrice))
   return(
     <div>
       <p className="text-[30px] font-extrabold text-center mb-[50px]">쇼핑백</p>
@@ -45,34 +39,35 @@ const CartDetailPage = () => {
               {Object.keys(cartData).map((data) => (
                 <table key={data} className="flex py-[40px]">
                   <tr>
-                    <img 
-                      src={image} 
-                      alt={data.productName} 
-                      className="w-[90px]"
-                    />
+                    <a href={`/products/${cartData[data].id}`}>
+                      <img 
+                        src={image} 
+                        alt={data.productName} 
+                        className="w-[90px]"
+                      />
+                    </a>
                     <td className="text-gray-500 underline text-center py-3 text-sm">옵션 변경</td>
                   </tr>
                   <tr className="flex flex-col w-[600px] mx-7">
                     <td className="font-bold text-lg">{cartData[data].brandName}</td>
                     <td className="text-lg">{cartData[data].productName}</td>
                     <td className="flex justify-between my-4">
-                      <td>{cartData[data].size}/{cartData[data].size}</td>
+                      <td className="text-gray-500">{cartData[data].color}/{cartData[data].size}</td>
                       <td className="flex">
-                        <p className="text-xl font-bold">{cartData[data].price}</p>
+                        <p className="text-xl font-bold">{cartData[data].price.toLocaleString('ko-KR')}</p>
                         <p className="text-sm flex items-end mb-0.5 ml-1">원</p>
                       </td>
                     </td>
                     <td className="flex justify-end">
-                      <button className="border-2 w-7 h-7 align-bottom mb-0.5 flex justify-center items-center" onClick={handleIncrease}>-</button>
-                      <input type="text" value={number} className="border-2 h-7 w-12 text-center"/>
-                      <button className="border-2 w-7 h-7 align-bottom mb-0.5 flex justify-center items-center">+</button>
+                      <p className="mr-1">수량 </p>
+                      <p>{cartData[data].pieces}개</p>
                     </td>
                   </tr>
                   <tr className="flex items-center justify-center w-[270px]">
                     <button className="border-2 h-12 w-[100px]">바로 구매</button>
                   </tr>
                   <tr>
-                    <button className="font-bold text-lg">X</button>
+                    <button className="font-bold text-lg" onClick={() => deleteProductInCart(cartData[data].id)}>X</button>
                   </tr>
                 </table>
               ))}
@@ -84,7 +79,7 @@ const CartDetailPage = () => {
           </div>
 
           {/* 최종 가격 및 결제 */}
-          <div className="w-[350px] h-[275px] bg-gray-100 m-5">
+          <div className="w-[350px] h-[275px] bg-gray-100 m-5 sticky top-20">
             <div className="m-10 space-y-3">
               <div className="flex justify-between">
                 <p className="text-gray-500">상품 금액</p>
@@ -95,7 +90,7 @@ const CartDetailPage = () => {
                 <p>{totalDeliveryFee.toLocaleString('ko-KR')} 원</p>
               </div>
               <hr />
-              <div className="flex justify-between">
+              <div className="flex justify-between ">
                 <p className="font-extrabold text-lg">결제예정금액</p>
                 <div className="flex">
                   <p className="font-extrabold text-2xl">{finalPrice}</p>
