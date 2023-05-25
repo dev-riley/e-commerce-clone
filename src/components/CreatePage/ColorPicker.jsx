@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ChromePicker } from "react-color";
 
-const ColorPicker = () => {
+const ColorPicker = ({ onColorChange }) => {
   const [display, setDisplay] = useState(false)
-  const [ color, setColor ] = useState()
+  const [ color, setColor ] = useState('')
+  const [ colorName, setColorName] = useState('')
   
   const handleClick = () => {
     setDisplay(!display)
@@ -14,6 +15,12 @@ const ColorPicker = () => {
 
   const handleColor = (color) => {
     setColor(color.hex)
+    onColorChange({ hex: color.hex, colorName})
+  }
+
+  const handleColorName = (e) => {
+    setColorName(e.target.value)
+    onColorChange({ hex: color, colorName: e.target.value})
   }
 
   return(
@@ -31,7 +38,7 @@ const ColorPicker = () => {
             <ChromePicker color={color} onChangeComplete={handleColor}/>
           </div>
         : null}
-        <input type="text" className="border-2 w-[75px] mt-2" placeholder="색상 이름"/>
+        <input type="text" className="border-2 w-[75px] mt-2" placeholder="색상 이름" onChange={handleColorName}/>
       </div>
     </div>
   )
