@@ -67,6 +67,18 @@
         "M"
       ],
       "deliveryFee": 0
+    },
+    {
+      "brandName": "ㅇ",
+      "productName": "ㅇ",
+      "productId": "ㅇ",
+      "price": "ㅇ",
+      "size": [
+        "XXS"
+      ],
+      "color": [],
+      "deliveryFee": "5",
+      "id": 5
     }
   ],
   "carts": [
@@ -76,9 +88,7 @@
       "brandName": "10MONTH",
       "productName": "변형소매 골드버튼 자켓-3부",
       "price": 143280,
-      "color": {
-        "아이보리": "#F9F5EA"
-      },
+      "color": "아이보리",
       "size": "S",
       "deliveryFee": 0
     },
@@ -89,9 +99,7 @@
       "brandName": "10MONTH",
       "productName": "V넥 변형 소매 셔츠-3부",
       "price": 85680,
-      "color": {
-        "white": "#FFFFFF"
-      },
+      "color": "화이트",
       "size": "M",
       "deliveryFee": 0
     },
@@ -113,10 +121,7 @@
       "productId": "TMT3110503",
       "img": "http://localhost:3001/7b06969fae3096216f65dc2bdd7e5ec8.jpg",
       "price": 143280,
-      "color": {
-        "key": "아이보리",
-        "value": "#F9F5EA"
-      },
+      "color": "아이보리",
       "size": "S",
       "deliveryFee": 0,
       "pieces": 1,
