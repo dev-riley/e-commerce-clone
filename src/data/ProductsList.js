@@ -1,7 +1,7 @@
 const productsList = [
   {
     productId: 'TMT3110503',
-    img: require('../images/1-1.jpg').default,
+    img: '../images/1-1.jpg',
     brandName: '10MONTH',
     productName: '변형소매 골드버튼 자켓-3부',
     price: '143,280',
