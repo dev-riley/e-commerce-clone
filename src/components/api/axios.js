@@ -21,4 +21,30 @@ const getProductDetail = async(id) => {
 // 상품 등록
 
 
-export { getProductList, getProductDetail }
+// 장바구니에 제품 추가
+const addToCart = async (data) => {
+  return await axios({
+    method: "POST",
+    url: 'http://localhost:8000/carts',
+    data: data
+  })
+}
+
+// 장바구니 목록 조회
+const getCart = async () => {
+  return await axios({
+    method: "GET",
+    url: 'http://localhost:8000/carts'
+  })
+}
+
+// 장바구니 상품 지우기
+const deleteProductInCart = async () => {
+  return await axios({
+    method: "DELETE",
+    url: 'http://localhost:8000/carts'
+  })
+}
+
+
+export { getProductList, getProductDetail, addToCart, getCart, deleteProductInCart }
