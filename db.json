@@ -67,18 +67,6 @@
         "M"
       ],
       "deliveryFee": 0
-    },
-    {
-      "brandName": "ㅇ",
-      "productName": "ㅇ",
-      "productId": "ㅇ",
-      "price": "ㅇ",
-      "size": [
-        "XXS"
-      ],
-      "color": [],
-      "deliveryFee": "5",
-      "id": 5
     }
   ],
   "carts": [
