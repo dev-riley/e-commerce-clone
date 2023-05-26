@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { getProductDetail, addToCart } from "../components/api/axios";
+import image from "../images/1-1.jpg"
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -75,9 +76,7 @@ const ProductDetailPage = () => {
       <div className="flex my-[30px] mx-[50px]">
         {/* /이미지 영역 carousel*/}
         <div>
-          {/* {Object.keys(images).map((imageUrl, index) => (
-            <img key={index} src={imageUrl} alt={detailInfo.productName} className="h-full w-full" />
-          ))} */}
+            <img src={image} alt={detailInfo.productName} className="h-full w-full" />
         </div>
         {/* 상세 설명 부분 */}
         <div className="ml-[120px]">

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import image from "../images/1-1.jpg"
 
 const CardItem = ({product}) => {
   const navigate = useNavigate();
@@ -7,11 +8,11 @@ const CardItem = ({product}) => {
   const toDetailPage = () => {
     navigate(`/products/${id}`)
   }
-  console.log(img)
+  
   return(
     <div className="p-4 md:s-1/4 mb-[130px] cursor-pointer" onClick={toDetailPage}>
       <div>
-        <img src={img} alt={brandName} className='w-full h-[380px] object-cover object-center'/>
+        <img src={image} alt={brandName} className='w-full h-[380px] object-cover object-center'/>
       </div>
       <div>
         <p className="opacity-3 font-bold ml-2 mt-4 mb-2">{brandName}</p>
